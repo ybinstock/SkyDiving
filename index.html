@@ -1,0 +1,72 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Skydiving with A-Frame </title>
+  <meta name="description" content="Skydiving with A-Frame">
+  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  <script src="bundle.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v2.5.2/dist/aframe-extras.js"></script>
+  <script src="https://rawgit.com/ngokevin/aframe-layout-component/master/dist/aframe-layout-component.min.js"></script>
+
+</head>
+<body>
+<a-scene>
+
+  <a-assets>
+    <a-asset-item id="cloud_1" src="cloud1.dae"></a-asset-item>
+    <a-asset-item id="cloud_2" src="cloud2.dae"></a-asset-item>
+    <a-asset-item id="cloud_2" src="cloud3.dae"></a-asset-item>
+
+    <!--<a-asset-item id="bird" src="raven.dae"></a-asset-item>-->
+
+  </a-assets>
+
+  <a-camera wasd-controls="enabled: true">
+    <a-animation attribute="position" from="0 0 0" to="0 0 -106" dur="30000"
+                 begin="0"></a-animation>
+  </a-camera>
+
+  <a-sky src="stars.jpg"></a-sky>
+
+  <!--clouds-->
+  <a-entity id="clouds">
+    <a-entity collada-model="#cloud_1" scale=".2 .2 .2" position="-4 14 -62" rotation="0 0 0"></a-entity>
+    <a-entity collada-model="#cloud_1" scale=".2 .2 .2" position="14 44 -26" rotation="0 0 0"></a-entity>
+    <a-entity collada-model="#cloud_1" scale=".2 .2 .2" position="-26 20 -46" rotation="0 0 0"></a-entity>
+
+    <a-entity collada-model="#cloud_2" scale=".2 .2 .2" position="26 20 -6" rotation="0 0 0"></a-entity>
+    <a-entity collada-model="#cloud_2" scale=".2 .2 .2" position="46 31 -30" rotation="0 0 0"></a-entity>
+    <a-entity collada-model="#cloud_2" scale=".2 .2 .2" position="-36 -34 -80" rotation="0 0 0"></a-entity>
+
+    <a-entity collada-model="#cloud_3" scale=".2 .2 .2" position="-16 13 -20" rotation="0 0 0"></a-entity>
+    <a-entity collada-model="#cloud_3" scale=".2 .2 .2" position="16 38 -50" rotation="0 0 0"></a-entity>
+    <a-entity collada-model="#cloud_3" scale=".2 .2 .2" position="20 -13 -70" rotation="0 0 0"></a-entity>
+  </a-entity>
+
+  <!--birds-->
+
+  <!--<a-entity  id="birds">-->
+  <!--<a-entity collada-model="#bird" scale=".2 .2 .2" position="-4 14 -10" rotation="0 0 0"></a-entity>-->
+  <!--<a-entity collada-model="#raven" scale=".2 .2 .2" position="4 14 -10" rotation="0 0 0"></a-entity>-->
+  <!--</a-entity>-->
+
+  <a-ocean position="0 0 -100"
+           ocean="width:4000;depth:2000;density:200;" material="color: #01085A" rotation="-180 180 0"></a-ocean>
+  <a-plane position="0 0 -101" width="4000" height="2000" color="black" rotation="-180 180 0"></a-plane>
+
+  <a-entity id="wind" geometry="primitive: plane" material="color: blue"
+            sound="src: url(wind.mp3); volume: 3; autoplay: true; loop: false"></a-entity>
+
+  <a-entity id="wind2" geometry="primitive: plane" material="color: blue"
+            sound="src: url(wind2.mp3); volume: 6; autoplay: true; loop: true"></a-entity>
+
+  <a-entity id="plane" geometry="primitive: plane" material="color: blue"
+            sound="src: url(plane.mp3); volume: 1; autoplay: true"></a-entity>
+
+  <a-entity id="splash" geometry="primitive: plane" material="color: blue"
+            sound="src: url(plane.mp3); volume: 8; "></a-entity>
+
+</a-scene>
+
+</body>
+</html>
